@@ -29,6 +29,5 @@ def advent04(input):
     for noun in range(len(intcode)):
         for verb in range(len(intcode)):
             if result(noun, verb, copy.deepcopy(intcode)) == 19690720:
-                print("%d, %d" % (noun, verb))
                 return 100 * noun + verb
     return -1
