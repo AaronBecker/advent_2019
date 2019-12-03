@@ -9,7 +9,8 @@ import time
 import session_id
 
 def get_input(n):
-    inpath = 'input/%02d' % ((int(n) - 1)// 2 + 1)
+    day = (int(n) - 1)// 2 + 1
+    inpath = 'input/%02d' % day
 
     # If we already have the input, read it.
     if os.path.exists(inpath):
@@ -18,7 +19,7 @@ def get_input(n):
 
     # Otherwise, download the input for problem n from adventofcode.com and
     # write it to disk.
-    uri = 'http://adventofcode.com/2019/day/%d/input' % n
+    uri = 'http://adventofcode.com/2019/day/%d/input' % day
     response = requests.get(uri,  cookies={'session': session_id.SESSION_ID})
     response.raise_for_status()
 
